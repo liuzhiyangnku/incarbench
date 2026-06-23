@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "VASP INCAR Benchmark"
+message: "If you use this repository, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: "Liu"
+    given-names: "Zhiyang"
+  - family-names: "Shao"
+    given-names: "Bin"
+  - family-names: "Wang"
+    given-names: "Weichao"
+repository-code: "https://github.com/liuzhiyangnku/configbench"
+license: "MIT"
+version: "v1"
+date-released: "2026-05-19"
+abstract: >
+  A benchmark for evaluating large language models on task-aware generation
+  and repair of VASP INCAR files, with case-level scoring for semantic
+  correctness, policy alignment, minimum task-runnability, and repair-specific
+  preservation behavior.

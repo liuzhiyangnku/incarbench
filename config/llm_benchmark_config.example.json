@@ -1,0 +1,119 @@
+{
+  "version": "0.1",
+  "materials_project": {
+    "api_key": "YOUR_MP_API_KEY",
+    "endpoint": "https://api.materialsproject.org"
+  },
+  "benchmark": {
+    "static_benchmark_root": "static_incar_benchmark",
+    "dataset_root": "dataset",
+    "default_prompt_style": "static_incar_v1",
+    "write_outputs_under_case": true
+  },
+  "models": [
+    {
+      "name": "gpt4o",
+      "enabled": false,
+      "provider": "openai",
+      "access_method": "openai_compatible_http",
+      "model_id": "gpt-4o",
+      "api_key": "YOUR_OPENAI_API_KEY",
+      "base_url": "https://api.openai.com/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "claude35",
+      "enabled": false,
+      "provider": "anthropic",
+      "access_method": "anthropic_sdk",
+      "model_id": "claude-3-5-sonnet-latest",
+      "api_key": "YOUR_ANTHROPIC_API_KEY",
+      "base_url": "https://api.anthropic.com",
+      "use_proxy": true,
+      "headers": {},
+      "default_params": {"max_tokens": 4096}
+    },
+    {
+      "name": "deepseek",
+      "enabled": false,
+      "provider": "deepseek",
+      "access_method": "openai_compatible_http",
+      "model_id": "deepseek-chat",
+      "api_key": "YOUR_DEEPSEEK_API_KEY",
+      "base_url": "https://api.deepseek.com/v1",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "gemini25pro_sdk",
+      "enabled": false,
+      "provider": "gemini",
+      "access_method": "google_genai_sdk",
+      "model_id": "gemini-2.5-pro",
+      "api_key": "YOUR_GEMINI_API_KEY",
+      "base_url": "https://generativelanguage.googleapis.com/",
+      "api_version": "v1beta",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "gemini20flash_vertex_openai",
+      "enabled": false,
+      "provider": "gemini",
+      "access_method": "openai_compatible_http",
+      "model_id": "google/gemini-2.0-flash-001",
+      "vertexai": true,
+      "project": "your-project-id",
+      "location": "us-central1",
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "llama-4-maverick-via-vertex-http",
+      "enabled": false,
+      "provider": "third-party-via-vertex",
+      "access_method": "third_party_via_vertex",
+      "model_id": "meta/llama-4-maverick-17b-128e-instruct-maas",
+      "endpoint": "us-east5-aiplatform.googleapis.com",
+      "region": "us-east5",
+      "project_id": "your-project-id",
+      "api_version": "v1beta1",
+      "headers": {},
+      "default_params": {
+        "max_tokens": 512,
+        "temperature": 0.5,
+        "top_p": 0.95
+      },
+      "use_proxy": false
+    },
+    {
+      "name": "local_vllm",
+      "enabled": false,
+      "provider": "local",
+      "access_method": "openai_compatible_http",
+      "model_id": "your-local-model",
+      "api_key": "EMPTY",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "ollama_local",
+      "enabled": false,
+      "provider": "ollama",
+      "access_method": "openai_compatible_http",
+      "model_id": "llama3.1:8b",
+      "api_key": "ollama",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {"temperature": 0}
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include CITATION.cff
+recursive-include config *.json
+recursive-include problems *.csv
+recursive-include incar_generation_benchmark *.csv *.json *.md
+recursive-include incar_repair_benchmark *.json *.md

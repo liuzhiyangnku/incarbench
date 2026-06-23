@@ -1,0 +1,7 @@
+openai
+anthropic
+httpx
+google-genai
+mp-api
+pymatgen
+requests

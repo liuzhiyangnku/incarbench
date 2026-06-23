@@ -1,0 +1,217 @@
+{
+  "request_timeout_seconds": 60,
+  "prompt": {
+    "system": "You are a connectivity smoke test assistant. Reply with OK only.",
+    "user": "Reply with OK only."
+  },
+  "models": [
+    {
+      "name": "gpt-5.3-codex",
+      "enabled": false,
+      "provider": "openai",
+      "access_method": "openai_compatible_http",
+      "model_id": "gpt-5.3-codex",
+      "api_key": "YOUR_OPENAI_API_KEY",
+      "base_url": "https://api.openai.com/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "kimi-k2.5",
+      "enabled": false,
+      "provider": "moonshot",
+      "access_method": "openai_compatible_http",
+      "model_id": "kimi-k2.5",
+      "api_key": "YOUR_MOONSHOT_API_KEY",
+      "base_url": "https://api.moonshot.cn/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    },
+    {
+      "name": "deepseek-chat",
+      "enabled": false,
+      "provider": "deepseek",
+      "access_method": "openai_compatible_http",
+      "model_id": "deepseek-chat",
+      "api_key": "YOUR_DEEPSEEK_API_KEY",
+      "base_url": "https://api.deepseek.com/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "qwen3-max-intl",
+      "enabled": false,
+      "provider": "qwen",
+      "access_method": "openai_compatible_http",
+      "model_id": "qwen3-max",
+      "api_key": "YOUR_QWEN_API_KEY",
+      "base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "glm-4.5",
+      "enabled": false,
+      "provider": "glm",
+      "access_method": "openai_compatible_http",
+      "model_id": "glm-4.5",
+      "api_key": "YOUR_GLM_API_KEY",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "gemini-2.5-pro",
+      "enabled": false,
+      "provider": "gemini",
+      "access_method": "openai_compatible_http",
+      "model_id": "gemini-2.5-pro",
+      "api_key": "YOUR_GEMINI_API_KEY",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "claude-3.5-sonnet",
+      "enabled": false,
+      "provider": "anthropic",
+      "access_method": "anthropic_sdk",
+      "model_id": "claude-3-5-sonnet-latest",
+      "api_key": "YOUR_ANTHROPIC_API_KEY",
+      "base_url": "https://api.anthropic.com",
+      "use_proxy": true,
+      "headers": {},
+      "default_params": {"max_tokens": 1024}
+    },
+    {
+      "name": "qwen3-max",
+      "enabled": false,
+      "provider": "qwen",
+      "access_method": "openai_compatible_http",
+      "model_id": "qwen3-max",
+      "api_key": "YOUR_QWEN_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "qwen-plus",
+      "enabled": false,
+      "provider": "qwen",
+      "access_method": "openai_compatible_http",
+      "model_id": "qwen-plus",
+      "api_key": "YOUR_QWEN_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {
+        "enable_thinking": false
+      }
+    },
+    {
+      "name": "qwen-flash",
+      "enabled": false,
+      "provider": "qwen",
+      "access_method": "openai_compatible_http",
+      "model_id": "qwen-flash",
+      "api_key": "YOUR_QWEN_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {
+        "enable_thinking": false
+      }
+    },
+    {
+      "name": "qwen3-coder-plus",
+      "enabled": false,
+      "provider": "qwen",
+      "access_method": "openai_compatible_http",
+      "model_id": "qwen3-coder-plus",
+      "api_key": "YOUR_QWEN_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "qwen3-coder-flash",
+      "enabled": false,
+      "provider": "qwen",
+      "access_method": "openai_compatible_http",
+      "model_id": "qwen3-coder-flash",
+      "api_key": "YOUR_QWEN_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "organization": "",
+      "headers": {},
+      "default_params": {}
+    },
+    {
+      "name": "ollama-local",
+      "enabled": false,
+      "provider": "ollama",
+      "access_method": "openai_compatible_http",
+      "model_id": "llama3.1:8b",
+      "api_key": "ollama",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "organization": "",
+      "use_proxy": false,
+      "headers": {},
+      "default_params": {"temperature": 0}
+    },
+    {
+      "name": "gemini-2.5-flash-vertexai-sdk",
+      "enabled": false,
+      "provider": "gemini",
+      "access_method": "google_genai_sdk",
+      "model_id": "gemini-2.5-flash",
+      "vertexai": true,
+      "project": "FILL_YOUR_PROJECT_ID",
+      "location": "global",
+      "api_key": "FILL_YOUR_VERTEX_TOKEN_IF_NEEDED",
+      "api_version": "v1",
+      "headers": {},
+      "default_params": {"temperature": 0},
+      "use_proxy": false
+    },
+    {
+      "name": "llama-4-maverick-via-vertex-http",
+      "enabled": false,
+      "provider": "third-party-via-vertex",
+      "access_method": "third_party_via_vertex",
+      "model_id": "meta/llama-4-maverick-17b-128e-instruct-maas",
+      "endpoint": "us-east5-aiplatform.googleapis.com",
+      "region": "us-east5",
+      "project_id": "your-project-id",
+      "api_version": "v1beta1",
+      "headers": {},
+      "default_params": {
+        "max_tokens": 512,
+        "temperature": 0.5,
+        "top_p": 0.95
+      },
+      "use_proxy": false
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "0.1",
+  "benchmark_type": "incar_repair",
+  "prompt_style": "blind_uniform_template",
+  "notes": [
+    "This template is for the INCAR repair benchmark.",
+    "It should not reveal which parameter is wrong or what corruption family was injected.",
+    "It should not mention reference answers, scoring rules, or repair labels."
+  ],
+  "system_prompt": "You are an expert VASP user. You will receive a material, a task description, and an existing INCAR draft. Review it carefully and output only the final INCAR text, without markdown or explanation.",
+  "user_template": "Material: {{formula}}\n\nTask type: {{task_type}}\n\nGoal: {{prompt_goal}}\n\nMaterial description: {{material_description}}\n\nConstraints: {{prompt_constraints}}\n\nContext: {{prompt_context}}\n\nPOSCAR:\n{{poscar}}\n\nExisting INCAR draft:\n{{incar_draft}}\n\nReview the INCAR draft for consistency with the stated material and task, and output the final INCAR.",
+  "placeholders": {
+    "formula": "Material formula or short material label.",
+    "task_type": "Benchmark task type such as static_scf, geometry_relax, line_mode_bands, or dos_nscf.",
+    "prompt_goal": "Task-level goal label from the dataset.",
+    "material_description": "Short factual description of the material. Keep it neutral and non-revealing.",
+    "prompt_constraints": "Task-level instruction shared by all cases of the same task_type.",
+    "prompt_context": "Task-level context shared by all cases of the same task_type.",
+    "poscar": "Full POSCAR text.",
+    "incar_draft": "The existing INCAR draft to be reviewed and corrected."
+  },
+  "guardrails": {
+    "forbidden_hints": [
+      "reference",
+      "policy",
+      "expected",
+      "must_match",
+      "score",
+      "scoring",
+      "rubric",
+      "corruption_family",
+      "broken",
+      "wrong parameter",
+      "repair this error"
+    ],
+    "keep_prompt_uniform": true,
+    "allow_case_specific_fields": [
+      "formula",
+      "task_type",
+      "prompt_goal",
+      "material_description",
+      "prompt_constraints",
+      "prompt_context",
+      "poscar",
+      "incar_draft"
+    ]
+  }
+}

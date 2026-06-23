@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vasp-incar-benchmark"
+version = "0.1.0"
+description = "Benchmark data and tooling for VASP INCAR generation and repair"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Zhiyang Liu" },
+  { name = "Bin Shao" },
+  { name = "Weichao Wang" },
+]
+dependencies = [
+  "anthropic",
+  "google-genai",
+  "httpx",
+  "mp-api",
+  "openai",
+  "pymatgen",
+  "requests",
+]
+
+[project.urls]
+Homepage = "https://github.com/liuzhiyangnku/configbench"
+Repository = "https://github.com/liuzhiyangnku/configbench"
+
+[project.scripts]
+vasp-incar-build-generation = "build_incar_generation_benchmark:main"
+vasp-incar-build-repair = "build_incar_repair_benchmark:main"
+vasp-incar-run-generation = "run_llm_incar_batch:main"
+vasp-incar-run-repair = "run_llm_incar_repair_batch:main"
+vasp-incar-score-generation = "score_incar_generation_batch:main"
+vasp-incar-score-repair = "score_incar_repair_batch:main"
+vasp-incar-report-generation = "generate_leaderboard_markdown_report:main"
+vasp-incar-report-repair = "generate_repair_leaderboard_markdown_report:main"
+
+[tool.setuptools]
+package-dir = {"" = "scripts"}
+py-modules = [
+  "benchmark_utils",
+  "build_incar_generation_benchmark",
+  "build_incar_repair_benchmark",
+  "generate_leaderboard_markdown_report",
+  "generate_repair_leaderboard_markdown_report",
+  "incar_generation_utils",
+  "incar_repair_utils",
+  "llm_config_utils",
+  "run_llm_incar_batch",
+  "run_llm_incar_repair_batch",
+  "score_incar_generation_batch",
+  "score_incar_repair_batch",
+]
+
+[tool.setuptools.package-data]
+"" = [
+  "CITATION.cff",
+  "LICENSE",
+  "README.md",
+  "config/*.json",
+  "incar_generation_benchmark/*.csv",
+  "incar_generation_benchmark/*.json",
+  "incar_generation_benchmark/README.md",
+  "incar_generation_benchmark/leaderboards/*.json",
+  "incar_generation_benchmark/leaderboards/*.md",
+  "incar_repair_benchmark/*.json",
+  "incar_repair_benchmark/README.md",
+  "incar_repair_benchmark/leaderboards/*.json",
+  "incar_repair_benchmark/leaderboards/*.md",
+  "problems/*.csv",
+]

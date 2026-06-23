@@ -1,0 +1,36 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.egg-info/
+
+# Local secrets
+config/llm_benchmark_config.json
+config/llm_connectivity_test.json
+config/hard_llm.json
+config/llm_connectivity_test_temperature_zero.json
+cookies.txt
+web-secure-ca.crt
+
+# Local logs and background runs
+logs/
+*.log
+*.pid
+*.status
+*.cmd
+
+# Large local outputs
+incar_generation_benchmark/cases/
+incar_generation_benchmark/batch_runs/
+incar_repair_benchmark/cases/
+incar_repair_benchmark/batch_runs/
+incar_repair_benchmark/stale_case_archive/
+
+# Archives
+*.tar.gz
+*.zip
+
+# Local release staging
+release_packages/

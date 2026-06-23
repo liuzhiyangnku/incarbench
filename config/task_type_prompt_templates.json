@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "description": "Task-type-level prompt templates for benchmark CSV normalization.",
+  "templates": {
+    "static_scf": {
+      "prompt_goal": "ground_state_energy",
+      "prompt_constraints": "Prepare an INCAR for a standalone static total-energy calculation.",
+      "prompt_context": "This is a single-point SCF task, not a structure relaxation or post-processing workflow."
+    },
+    "geometry_relax": {
+      "prompt_goal": "force_converged_structure",
+      "prompt_constraints": "Prepare an INCAR for a geometry optimization.",
+      "prompt_context": "This task should relax the structure until forces are small; it is not a static single-point or post-processing step."
+    },
+    "line_mode_bands": {
+      "prompt_goal": "band_structure",
+      "prompt_constraints": "Assume the charge density comes from a prior SCF run and this task is only the line-mode band calculation.",
+      "prompt_context": "This is a non-self-consistent band-structure step, not a geometry optimization or a fresh SCF run."
+    },
+    "dos_nscf": {
+      "prompt_goal": "density_of_states",
+      "prompt_constraints": "Assume this is a DOS calculation using a previously converged charge density.",
+      "prompt_context": "This is a non-self-consistent DOS post-processing step, not a fresh SCF run or a geometry optimization."
+    }
+  }
+}
