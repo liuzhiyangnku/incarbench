@@ -1,59 +1,65 @@
-# VASP INCAR Benchmark
+# INCARBench
 
-`VASP INCAR Benchmark` is a benchmark for evaluating large language models on
-task-aware generation and repair of VASP `INCAR` files.
+INCARBench is a benchmark for evaluating large language models on scientific
+configuration tasks for VASP `INCAR` files. It covers both task-aware INCAR
+generation and repair, with released benchmark metadata, scoring scripts, and
+leaderboard summaries.
 
-The repository focuses on two benchmarked capabilities:
+The benchmark is introduced in the arXiv paper:
 
-- `INCAR` generation from structure and compact task context
-- `INCAR` repair from a task-aware but potentially corrupted INCAR draft
-
-It is designed to measure workflow-semantic correctness, method-policy
-alignment, minimum task-runnability, and repair-specific preservation behavior.
+- **INCARBench: A Benchmark for Scientific Configuration in VASP INCAR by Large
+  Language Models**
+- arXiv: [2606.23571](https://arxiv.org/abs/2606.23571)
+- Authors: Bin Shao, Jixiang Li, Xinyue Zhang, Baishun Yang, Zhiyang Liu,
+  Weichao Wang
 
 ## What This Repository Contains
 
 - benchmark definitions under `problems/`
-- benchmark construction, run, scoring, and reporting scripts under `scripts/`
+- construction, inference, scoring, and reporting scripts under `scripts/`
 - safe example configuration templates under `config/`
-- released metadata and leaderboard summaries for generation and repair
-
-## What This Repository Does Not Benchmark
-
-- `KPOINTS`
-- `POTCAR`
-- full VASP execution and convergence
-- physical-observable quality such as energies, forces, magnetization, or bands
-
-The results should therefore be interpreted as an evaluation of `INCAR`
-construction competence at the workflow-preparation stage, not as a complete
-electronic-structure benchmark.
-
-## Benchmark Overview
+- released metadata and leaderboard summaries for INCAR generation and repair
 
 The current curated benchmark version is defined by:
 
 - `problems/problem_set_v1.0.csv`
 
-The benchmark contains:
+The released benchmark contains:
 
-- `192` generation cases
-- `576` repair cases derived from the generation benchmark
+- `192` INCAR generation cases
+- `576` INCAR repair cases derived from the generation benchmark
 
-The case set spans:
+The case set spans four task types:
 
-- four task types: `static_scf`, `geometry_relax`, `line_mode_bands`,
-  `dos_nscf`
-- multiple material families
-- multiple challenge types, including NSCF workflow, DFT+U, SOC, vdW,
-  smearing, symmetry, and magnetic initialization
-- difficulty tiers `L1`, `L2`, and `L3`
+- `static_scf`
+- `geometry_relax`
+- `line_mode_bands`
+- `dos_nscf`
+
+It covers multiple material families and challenge types, including NSCF
+workflow configuration, DFT+U, SOC, vdW corrections, smearing, symmetry, and
+magnetic initialization.
+
+## Scope
+
+INCARBench evaluates workflow-level INCAR construction competence. It does not
+benchmark:
+
+- `KPOINTS`
+- `POTCAR`
+- full VASP execution and convergence
+- downstream physical-observable quality such as energies, forces,
+  magnetization, or band structures
+
+The results should therefore be interpreted as an evaluation of
+workflow-preparation and configuration correctness, not as a complete
+electronic-structure benchmark.
 
 ## Repository Layout
 
-- `config/`: safe config templates and prompt templates
+- `config/`: example model/configuration templates and prompt templates
 - `problems/`: benchmark problem-set CSVs
-- `scripts/`: core builders, runners, scorers, and report generators
+- `scripts/`: builders, runners, scorers, and report generators
 - `incar_generation_benchmark/`: released generation metadata and leaderboards
 - `incar_repair_benchmark/`: released repair metadata and leaderboards
 
@@ -63,13 +69,13 @@ The case set spans:
 pip install .
 ```
 
-Or for local development:
+For local development:
 
 ```bash
 pip install -e .
 ```
 
-## Minimal Workflow
+## Basic Usage
 
 Build generation benchmark cases:
 
@@ -108,9 +114,16 @@ Score repair outputs:
 vasp-incar-score-repair --model-name your_model_name
 ```
 
+Generate Markdown reports:
+
+```bash
+vasp-incar-report-generation
+vasp-incar-report-repair
+```
+
 ## Released Outputs
 
-This repository includes released summary-level outputs such as:
+This repository includes summary-level released outputs:
 
 - generation leaderboard summaries under
   `incar_generation_benchmark/leaderboards/`
@@ -121,17 +134,33 @@ This repository includes released summary-level outputs such as:
 Full local run logs, private credentials, and full case-level model outputs are
 not included in this public export.
 
-## Included Scripts
+## Configuration
 
-The public export keeps the core scripts needed for benchmark construction,
-model execution, scoring, and report generation. Helper modules required by
-these entry points are also included under `scripts/`.
+Copy the example configuration before running models:
+
+```bash
+cp config/llm_benchmark_config.example.json config/llm_benchmark_config.json
+```
+
+Then edit the local config with your model endpoints and keys. Local config
+files containing credentials are ignored by Git.
 
 ## Citation
 
-If you use this benchmark, please cite the associated paper or repository
-release. A machine-readable citation file is provided in `CITATION.cff`.
+If you use INCARBench, please cite the paper:
+
+```bibtex
+@article{shao2026incarbench,
+  title   = {INCARBench: A Benchmark for Scientific Configuration in VASP INCAR by Large Language Models},
+  author  = {Shao, Bin and Li, Jixiang and Zhang, Xinyue and Yang, Baishun and Liu, Zhiyang and Wang, Weichao},
+  journal = {arXiv preprint arXiv:2606.23571},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2606.23571}
+}
+```
+
+A machine-readable citation file is also provided in `CITATION.cff`.
 
 ## License
 
-This project is distributed under the `MIT` License. See `LICENSE`.
+This project is distributed under the MIT License. See `LICENSE`.
